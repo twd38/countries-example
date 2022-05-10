@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from "react";
+import { StyleSheet, View, FlatList, Text} from "react-native";
 
-function App() {
+const App = () => {
+  const [countries, setCountries] = useState([])
+
+  useEffect(() => {
+    getCountries().then(data => {
+      setCountries(data)
+    })
+  },[])
+
+  const getCountries = async () => {
+    const url = "https://restcountries.com/v3.1/all"
+    const res = await fetch(url, {
+      method: 'GET',
+    })
+    return res.json()
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <View style={styles.container}>
+      <FlatList
+        style={styles.list}
+        data={countries}
+        renderItem={({item}) => <View styles={styles.listItem}><Text>{item.name.common}</Text></View> }
+      />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  list: {
+    width: "100%",
+    height: "100%",
+    padding: "10px",
+  },
+  listItem: {
+    width: "100%",
+    height: "40px",
+    padding: "8px",
+    alignSelf: "center"
+  },
+});
 
 export default App;
