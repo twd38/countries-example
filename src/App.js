@@ -1,6 +1,5 @@
 import {useState, useEffect} from "react";
-import { StyleSheet, SafeAreaView, View, FlatList, Text, ActivityIndicator } from "react-native";
-// import { Card, ListItem } from 'react-native-elements'
+import { StyleSheet, View, FlatList, Text, ActivityIndicator } from "react-native";
 
 const App = () => {
   const [countries, setCountries] = useState([])
@@ -31,12 +30,6 @@ const App = () => {
     }
   }
 
-  // const countryCard = () => {
-  //   <Card>
-      
-  //   </Card>
-  // }
-
   const Footer = () => (
     <View style={styles.footer}>
         {(loading && page < lastPage) && <ActivityIndicator />}
@@ -44,20 +37,18 @@ const App = () => {
     </View>
   )
 
+  console.log(loading)
   return(
-    <SafeAreaView style={styles.container}>
-      { countries.length > 0 && (
+    <View style={styles.container}>
         <FlatList
           contentContainerStyle={styles.list}
           data={countries}
-          renderItem={({item}) => <View style={styles.listItem}><Text >{item.name}</Text></View> }
-          onEndReachedThreshold={0.6}
+          renderItem={({item}) => <View style={styles.listItem}><Text style={styles.listText}>{item.name}</Text></View> }
+          onEndReachedThreshold={0.1}
           onEndReached={getMoreCountries}
           ListFooterComponent={Footer}
-          // ListEmptyComponent={End}
         />
-      )}
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -68,11 +59,13 @@ const styles = StyleSheet.create({
   list: {
     flexGrow: 1,
     height: "100vh",
+    paddingTop: 50
   },
   listItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 10
   },
   footer: {
     flex: 1, 
@@ -80,6 +73,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 20,
   },
+  listText: {
+    fontSize: 16,
+  }
 });
 
 export default App;
