@@ -1,7 +1,7 @@
 # Simple Country List
 This is a quick example of calling an API and displaying a list of its data using React, React Native, and React Native Web.
 
-This project uses a simple Express api that can be found [here](https://github.com/twd38/country-service)
+This project uses a simple Express api that can be found [here](https://github.com/twd38/country-service).
 ## Available Scripts
 
 In the project directory, you can run:
