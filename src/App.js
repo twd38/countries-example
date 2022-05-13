@@ -6,7 +6,6 @@ import CountryDetail from "./CountryDetail";
 const App = () => {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false);
   const [activeCountry, setActiveCountry] = useState(null)
   const [page, setPage] = useState(1)
   const lastPage = 15
@@ -46,7 +45,6 @@ const App = () => {
         <FlatList
           contentContainerStyle={styles.list}
           data={countries}
-          // renderItem={({item}) => <View style={styles.listItem}><Text style={styles.listText}>{item.name}</Text></View> }
           renderItem={({item}) => <CountryListItem country={item} openModal={(country) => setActiveCountry(country)}/> }
 
           onEndReachedThreshold={0.1}
@@ -55,22 +53,6 @@ const App = () => {
         />
 
         <CountryDetail country={activeCountry} handleClose={() => setActiveCountry(null)} />
-
-        {/* <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal> */}
     </View>
   )
 }
@@ -82,7 +64,7 @@ const styles = StyleSheet.create({
   list: {
     flexGrow: 1,
     height: "100vh",
-    paddingTop: 50
+    paddingTop: 20
   },
   listItem: {
     flex: 1,
