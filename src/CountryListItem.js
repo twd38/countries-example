@@ -7,7 +7,7 @@ const CountryListItem = ({country, openModal}) => {
       <View style={styles.listItem}>
           <ListItem
               secondaryAction={
-                <IconButton edge="end" aria-label="delete" >
+                <IconButton edge="end">
                   <InfoIcon />
                 </IconButton>
               }
