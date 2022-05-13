@@ -1,7 +1,6 @@
-# This is a quick example of calling an API and displaying a list of its data.
+# This is a quick example of calling an API and displaying a list of its data using React, React Native, and React Native Web.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This project uses a simple Express api that can be found [here](https://github.com/twd38/country-service)
 ## Available Scripts
 
 In the project directory, you can run:
@@ -11,5 +10,4 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Note: npm version 15 required to build locally.

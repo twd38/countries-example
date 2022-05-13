@@ -64,13 +64,14 @@ const styles = StyleSheet.create({
   list: {
     flexGrow: 1,
     height: "100vh",
-    paddingTop: 20
+    maxWidth: 500,
+    paddingTop: 20,
   },
   listItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   footer: {
     flex: 1, 
